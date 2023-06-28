@@ -1,5 +1,8 @@
 const { Sequelize } = require("sequelize");
+const {simpleConsole, warnConsole, dangerConsole,successConsole,darkConsole} = require("./utils/colorConsoler");
 
+
+const {} = require("../")
 // Create MySQL connection
  const sequelize = new Sequelize(
   process.env.DB_HOST,
@@ -8,9 +11,9 @@ const { Sequelize } = require("sequelize");
   { host: process.env.DB_HOST, dialect: "mysql2" }
 );
 sequelize.authenticate().then(() => {
-    console.log('Connection has been established successfully.');
+   successConsole('Connection has been established successfully.');
  }).catch((error) => {
-    console.error('Unable to connect to the database: ', error);
+   dangerConsole('Unable to connect to the database: ', error);
  });
  
  module.exports = sequelize
