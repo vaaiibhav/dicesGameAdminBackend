@@ -5,7 +5,6 @@ const app = express();
 var httpServer = require ('http').createServer(app);
 
 const {simpleConsole, warnConsole, dangerConsole,successConsole,darkConsole} = require("./utils/colorConsoler");
-// const sequelize = require('./utils/DbConn');
 
 const port = process.env.SERVER_PORT || 3105;
 
@@ -23,7 +22,6 @@ app.use(express.json());
 
 // parse requests of content-type - application/x-www-form-urlencoded
 app.use(express.urlencoded({ extended: true }));
-require("./routes/routes.js")(app);
 
 app.get('/', (req, res) => {
   simpleConsole("Hello World")
